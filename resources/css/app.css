@@ -1,33 +1,48 @@
 /* ==========================================================================
-   Tugas Pak Faruq - Premium Modern Design System
+   Tugas Pak Faruq - Premium Modern & Responsive Design System
+   Sistem styling aplikasi: responsif, transisi halus (smooth), dan modern
    ========================================================================== */
 
+/* Mengaktifkan scroll halus ke anchor link (misal: #tata-cara) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variabel tema warna global dan tipografi */
 :root {
+  /* Gradien utama untuk tombol dan aksen branding */
   --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  /* Gradien saat tombol atau elemen di-hover */
   --primary-hover-gradient: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  /* Warna brand solid */
   --brand-color: #6366f1;
+  /* Font utama menggunakan Plus Jakarta Sans dengan fallback sistem */
   --font-family-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Styling dasar elemen body */
 body {
   font-family: var(--font-family-sans);
   background-color: #f8fafc;
   color: #1e293b;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Mencegah overflow horizontal pada layar smartphone */
 }
 
-/* Background animated gradient for auth pages */
+/* Background dengan animasi gradien radial lembut untuk halaman auth / login */
 .auth-wrapper {
   background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
               radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
               #f8fafc;
 }
 
+/* Container kartu autentikasi dengan lebar responsif */
 .auth-card-container {
   width: 100%;
   max-width: 440px;
 }
 
+/* Kartu login/register dengan efek blur kaca (glassmorphism) yang halus */
 .auth-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
@@ -36,7 +51,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Brand Icons & Logos */
+/* Wrapper icon brand logo dengan efek bayangan */
 .brand-icon-wrapper {
   width: 44px;
   height: 44px;
@@ -49,10 +64,12 @@ body {
   box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4);
 }
 
+/* Ukuran icon brand */
 .brand-icon {
   font-size: 1.35rem;
 }
 
+/* Ukuran kecil icon brand untuk navbar */
 .brand-icon-sm {
   width: 32px;
   height: 32px;
@@ -64,6 +81,7 @@ body {
   justify-content: center;
 }
 
+/* Judul teks logo brand */
 .brand-title {
   font-weight: 800;
   font-size: 1.25rem;
@@ -71,50 +89,55 @@ body {
   color: #0f172a;
 }
 
-/* Navbar */
+/* Navbar dengan warna gelap modern dan efek blur */
 .navbar-custom {
   background: #0f172a;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Link navigasi navbar */
 .navbar-custom .nav-link {
   color: #94a3b8;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
+/* Efek hover dan status aktif pada menu navigasi */
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Buttons */
+/* Tombol dengan aksen gradien ungu-indigo */
 .btn-gradient-primary {
   background: var(--primary-gradient);
   color: white !important;
   border: none;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.35);
 }
 
+/* Efek hover tombol gradien: mengangkat ke atas dan bayangan membesar secara smooth */
 .btn-gradient-primary:hover {
   background: var(--primary-hover-gradient);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(99, 102, 241, 0.45);
 }
 
+/* Efek saat tombol diklik (active state) */
 .btn-gradient-primary:active {
   transform: translateY(0);
 }
 
+/* Padding vertikal kustom untuk tombol / input */
 .py-2-5 {
   padding-top: 0.65rem;
   padding-bottom: 0.65rem;
 }
 
-/* Form Controls */
+/* Form controls saat fokus: efek border glow halus */
 .form-control:focus,
 .form-select:focus {
   border-color: #6366f1;
@@ -122,21 +145,77 @@ body {
   background-color: #ffffff !important;
 }
 
+/* Border standar untuk input grup dan input form */
 .input-group-text {
   border-color: #e2e8f0;
 }
 
 .form-control {
   border-color: #e2e8f0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Tables */
+/* Format tabel modern */
 .table th {
   font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
 
-/* Utility classes */
+/* Utility kelas teks kecil */
 .fs-7 {
   font-size: 0.75rem;
+}
+
+/* Efek kartu terangkat (hover-lift) yang halus saat diarahkan kursor */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Animasi melayang santai (floating effect) untuk ilustrasi hero atau badge preview */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+/* Animasi melayang dengan delay agar tidak bergerak bersamaan */
+.animate-float-delayed {
+  animation: floatAnimation 4s ease-in-out infinite 2s;
+}
+
+/* Glassmorphism card untuk floating badge di landing page */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive helper untuk gambar hero agar selalu proporsional dan tidak terpotong */
+.hero-img-responsive {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-img-responsive:hover {
+  transform: scale(1.02);
 }
